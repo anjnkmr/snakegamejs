@@ -1,0 +1,29 @@
+{
+  "name": "snakegame",
+  "version": "1.0.0",
+  "description": "Snake Game",
+  "main": "index.js",
+  "scripts": {
+    "serve": "http-server ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anjnkmr/snakegamejs.git"
+  },
+  "keywords": [
+    "snake",
+    "game",
+    "anjnkmr",
+    "opensource",
+    "snakegamejs"
+  ],
+  "author": "Anjan Kumar <kumar.rakuditi@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anjnkmr/snakegamejs/issues"
+  },
+  "homepage": "https://github.com/anjnkmr/snakegamejs#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

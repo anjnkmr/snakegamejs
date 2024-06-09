@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Snake Game JS</title>
+    <meta name="description" content="Snake Game JS">
+    <meta name="keywords" content="game, web game, HTML5 game">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="game-title-container">
+            <h3 class="title">Snake Game</h3>
+        </div>
+        <div class="game-metrics-container">
+            <div class="time-container">
+                <div class="time">Time: 00:00</div>
+            </div>
+            <div class="level-container">
+                <div class="level">Level: 001</div>
+            </div>
+            <div class="score-container">
+                <div class="score">Score: 005</div>
+            </div>
+        </div>
+        <div class="game-board">
+            <div class="level-board">
+
+            </div>
+        </div>
+        <div class="game-buttons">
+            <button type="button" class="pause-button" onclick="pauseGame()">Pause</button>
+            <button type="button" class="resume-button" onclick="resumeGame()">Resume</button>
+            <button type="button" class="restart-button" onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

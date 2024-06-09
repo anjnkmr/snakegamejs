@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'LuckiestGuy';
+    src: url('./LuckiestGuy-Regular.ttf');
+}
+html {
+    font-family:'LuckiestGuy', Courier, monospace;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+html body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0px;
+}
+body .game-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: cadetblue;
+    padding: 8px
+}
+.game-container .game-title-container {
+    display: flex;
+    flex-direction: column;
+}
+.game-title-container .title {
+    text-align: center;
+    color: beige;
+    font-size: 30px;
+    letter-spacing: 30px;
+}
+.game-container .game-metrics-container,
+.game-container .game-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+ .game-metrics-container .time-container, 
+ .game-metrics-container .level-container, 
+ .game-metrics-container .score-container {
+    background: beige;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.game-container .game-buttons button {
+    border: 0px;
+    padding: 8px;
+    font-family: 'LuckiestGuy', Courier, monospace;
+    background-color: cadetblue;
+    cursor: pointer;
+    color: beige;
+    border-radius: 8px;
+}
+
+.game-container .game-buttons button.pause-button,
+.game-container .game-buttons button.resume-button {
+    background-color: darkcyan;
+}
+
+.game-container .game-buttons button.restart-button {
+    background-color: brown;
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: beige;
+    margin: 8px;
+    border-radius: 8px;
+}
+
+.game-board .level-board{
+    display: block;
+    height: 100%;
+    position: relative;
+}
+/** Game CSS **/
+#snake-food {
+    display: flex;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: cadetblue;
+    border-radius: 10px;
+
+    left: 260px;
+    top: 100px;
+}
+#snake-head {
+    display: flex;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: cornflowerblue;
+    border-radius: 10px;
+
+    left: 200px;
+    top: 100px;
+}
+.snake-body {
+    display: flex;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: darkgray;
+    border-radius: 10px;
+
+    left: 180px;
+    top: 100px;
+}
+.snake-body.b2{
+    left: 160px;
+    top: 100px;
+}
+.snake-body.b3{
+    left: 140px;
+    top: 100px;
+}
+.snake-body.b4{
+    left: 120px;
+    top: 100px;
+}

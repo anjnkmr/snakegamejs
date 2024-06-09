@@ -9,6 +9,7 @@ const SCORE_SELECTOR = '.game-metrics-container .score-container .score';
 
 const SNAKE_PART_SIZE = 20;
 let score = 0;
+let currentLevel = 1;
 let startTime = new Date();
 
 const board = document.querySelector(`.${BOARD_CLASS}`);
@@ -101,7 +102,24 @@ function addBodyPart(withScore = false) {
     const scoreElement = document.querySelector(SCORE_SELECTOR);
     if (scoreElement) {
         // padd with zeros to make it 3 digits
-        scoreElement.textContent = score.toString().padStart(3, '0');
+        scoreElement.textContent = 'Score: ' + score.toString().padStart(3, '0');
+    }
+
+    if (score > 0 && score % 10 === 0) {
+        currentLevel++;
+        if (currentLevel > 25) {
+            alert('Congratulations!!!! You won!');
+            restartGame();
+        }
+        pauseGame();
+        alert(`Level Up! You are now at level ${currentLevel}!`);
+        resumeGame();
+        // update the level
+        const levelElement = document.querySelector('.game-metrics-container .level-container .level');
+        if (levelElement) {
+            levelElement.textContent = 'Level: ' + currentLevel.toString().padStart(3, '0');
+        }
+        
     }
 }
 
@@ -165,9 +183,17 @@ function keepMoving(direction) {
         return;
     }
     currentDirection = direction;
+    let desktopDelay = 100;
+    let mobileDelay = 500;
+
+    desktopDelay = desktopDelay - (currentLevel * 2);
+    mobileDelay = mobileDelay - (currentLevel * 10);
+
+    let delay = window.innerWidth < 768 ? mobileDelay : desktopDelay;
+    
     movementIntervalId = setInterval(() => {
         moveSnake(direction);
-    }, 100);
+    }, delay);
 }
 
 function moveSnake(direction) {
@@ -254,6 +280,9 @@ function restartGame() {
 
     // remove event listeners
     document.removeEventListener('keydown', eventListner);
+
+    // reset the level
+    currentLevel = 1;
 
     // remove the snake from the board
     board.removeChild(snake.head);

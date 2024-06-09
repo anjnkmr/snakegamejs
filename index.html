@@ -32,6 +32,19 @@
 
             </div>
         </div>
+        <div class="mobile-controls">
+            <div class="line line1">
+            <button type="button" class="mobile-direction-button" onclick="keepMoving('up')">&lt;</button>
+        </div>
+        <div class="line line2">
+            <button type="button" class="mobile-direction-button" onclick="keepMoving('left')">&lt;</button>
+            <button type="button" class="mobile-direction-button pause-button-mobile" onclick="togglePause()">P</button>
+            <button type="button" class="mobile-direction-button" onclick="keepMoving('right')">&gt;</button>
+        </div>
+        <div class="line line3">
+            <button type="button" class="mobile-direction-button" onclick="keepMoving('down')">&gt;</button>
+        </div>
+        </div>
         <div class="game-buttons">
             <button type="button" class="pause-button" onclick="pauseGame()">Pause</button>
             <button type="button" class="resume-button" onclick="resumeGame()">Resume</button>

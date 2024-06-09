@@ -133,29 +133,6 @@ function randomFoodGenerator() {
     board.appendChild(food);
 }
 
-function touchScreenEventListner(event) {
-    const touch = event.touches[0];
-    const x = touch.clientX;
-    const y = touch.clientY;
-    const head = snake.head;
-    const headX = head.getBoundingClientRect().left;
-    const headY = head.getBoundingClientRect().top;
-    const diffX = x - headX;
-    const diffY = y - headY;
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-        if (diffX > 0) {
-            keepMoving('right');
-        } else {
-            keepMoving('left');
-        }
-    } else {
-        if (diffY > 0) {
-            keepMoving('down');
-        } else {
-            keepMoving('up');
-        }
-    }
-}
 function eventListner(event) {
     switch (event.key) {
         case 'Escape':
@@ -178,7 +155,6 @@ function eventListner(event) {
 
 function addInputListeners() {
     document.addEventListener('keydown', eventListner);
-    document.addEventListener('touchstart', touchScreenEventListner);
 }
 
 function keepMoving(direction) {
@@ -273,9 +249,11 @@ function restartGame() {
     clearInterval(movementIntervalId);
     movementIntervalId = null;
 
+    // reset score
+    score = 0;
+
     // remove event listeners
     document.removeEventListener('keydown', eventListner);
-    document.removeEventListener('touchstart', touchScreenEventListner);
 
     // remove the snake from the board
     board.removeChild(snake.head);
@@ -297,6 +275,10 @@ function restartGame() {
 
     startGame();
 }
+
+function togglePause() {
+    currentGameState === 'running' ? pauseGame() : resumeGame();
+}   
 
 function pauseGame() {
     clearInterval(movementIntervalId);
